@@ -11,7 +11,7 @@ export const todos = [
 	},
 	{
 		id: '3',
-		title: 'finishe module # 6',
+		title: 'finish module # 6',
 		completed: false
 	}
 ];

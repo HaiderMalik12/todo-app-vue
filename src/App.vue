@@ -6,7 +6,7 @@
                     <h1>Todos</h1>
                     <AddTodo/>
                     <hr>
-                    <TodoListView/>
+                    <TodoListView :todos="todos" />
                     <div class="todo-footer">
                         <strong>
                             <span class="count-todos">2</span>
@@ -25,8 +25,14 @@
 import TodoListView from './components/TodoListView.vue';
 import AddTodo from './components/AddTodo.vue';
 import FinishedTodos from './components/FinishedTodos';
+import {todos} from './seed.js'
 export default {
     name: 'app',
+    data(){
+    return {
+        todos: todos
+    }
+    },
     components:{
         TodoListView,
         AddTodo,
