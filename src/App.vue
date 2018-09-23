@@ -6,16 +6,16 @@
                     <h1>Todos</h1>
                     <AddTodo @add-todo="addTodo" />
                     <hr>
-                    <TodoListView :todos="todos" />
+                    <TodoListView :todos="unFinishedTodos" @completed-todo="completedTodo" />
                     <div class="todo-footer">
                         <strong>
-                            <span class="count-todos">2</span>
+                            <span class="count-todos">{{unFinishedTodos.length}}</span>
                         </strong> Items Left
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <FinishedTodos/>
+                <FinishedTodos :todos="finishedTodos" @delete-todo="deleteTodo" />
             </div>
         </div>
     </div>
@@ -41,8 +41,24 @@ export default {
     methods:{
         addTodo(event){
             this.todos.push(event);
+        },
+        completedTodo(event){
+            const index= this.todos.findIndex(todo => todo.id === event.id);
+            this.todos[index].completed = true
+        },
+        deleteTodo(event){
+            const index= this.todos.findIndex(todo => todo.id === event.id);
+            this.todos.splice(index, 1);
         }
-    }
+    },
+    computed:{
+     finishedTodos(){
+      return this.todos.filter(todo => todo.completed === true)
+     },
+     unFinishedTodos(){
+      return this.todos.filter(todo => todo.completed === false)
+     }
+ }
 };
 </script>
 
