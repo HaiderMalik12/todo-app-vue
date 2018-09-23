@@ -12,6 +12,7 @@ export default {
  },
  methods:{
      saveTodo(title){
+      this.$store.dispatch('addTodo',{id: Date.now().toString(), completed:false, title})
      }
  }
 }
