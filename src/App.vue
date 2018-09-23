@@ -4,57 +4,34 @@
             <div class="col-md-6">
                 <div class="todolist not-done">
                     <h1>Todos</h1>
-                    <input type="text" class="form-control add-todo" placeholder="Add todo">
-                    <button id="checkAll" class="btn btn-success">Mark all as done</button>
-
+                    <AddTodo/>
                     <hr>
-                    <ul id="sortable" class="list-unstyled">
-                        <li class="ui-state-default">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" value="" />Take out the trash</label>
-                            </div>
-                        </li>
-                        <li class="ui-state-default">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" value="" />Buy bread</label>
-                            </div>
-                        </li>
-                        <li class="ui-state-default">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" value="" />Teach penguins to fly</label>
-                            </div>
-                        </li>
-                    </ul>
+                    <TodoListView/>
                     <div class="todo-footer">
                         <strong>
-                            <span class="count-todos"></span>
+                            <span class="count-todos">2</span>
                         </strong> Items Left
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="todolist">
-                    <h1>Already Done</h1>
-                    <ul id="done-items" class="list-unstyled">
-                        <li>Some item
-                            <button class="remove-item btn btn-default btn-xs pull-right">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </li>
-
-                    </ul>
-                </div>
+                <FinishedTodos/>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import TodoListView from './components/TodoListView.vue';
+import AddTodo from './components/AddTodo.vue';
+import FinishedTodos from './components/FinishedTodos';
 export default {
-	name: 'app'
+    name: 'app',
+    components:{
+        TodoListView,
+        AddTodo,
+        FinishedTodos
+    }
 };
 </script>
 
