@@ -4,7 +4,7 @@
             <div class="col-md-6">
                 <div class="todolist not-done">
                     <h1>Todos</h1>
-                    <AddTodo/>
+                    <AddTodo @add-todo="addTodo" />
                     <hr>
                     <TodoListView :todos="todos" />
                     <div class="todo-footer">
@@ -37,6 +37,11 @@ export default {
         TodoListView,
         AddTodo,
         FinishedTodos
+    },
+    methods:{
+        addTodo(event){
+            this.todos.push(event);
+        }
     }
 };
 </script>
