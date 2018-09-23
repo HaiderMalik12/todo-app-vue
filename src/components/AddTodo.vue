@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import EventBus from '../EventBus';
 export default {
  name: 'AddTodo',
  data(){
@@ -13,7 +12,6 @@ export default {
  },
  methods:{
      saveTodo(title){
-       EventBus.$emit('add-todo',{title, id: Date.now().toString(), completed:false})
      }
  }
 }

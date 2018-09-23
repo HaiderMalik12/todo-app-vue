@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import EventBus from '../EventBus.js';
 export default {
  name: 'FinishedTodos',
  props:{
@@ -23,7 +22,7 @@ export default {
  },
  methods:{
      removeTodo(todoId){
-         EventBus.$emit('delete-todo', {id: todoId})
+
      }
  }
 }
